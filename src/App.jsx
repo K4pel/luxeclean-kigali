@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Clock, Award, Sparkles, Building2, Home, ChevronRight, CheckCircle, Star, Moon, Sun, MessageCircle } from 'lucide-react';
+import { Phone, Shield, Clock, Award, Sparkles, Building2, Home, ChevronRight, CheckCircle, Star, Moon, Sun, MessageCircle, Quote, ChevronDown } from 'lucide-react';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -12,6 +12,11 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [activeFaq, setActiveFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setActiveFaq(activeFaq === index ? null : index);
+  };
 
   useEffect(() => {
     if (isDark) {
@@ -192,6 +197,67 @@ function App() {
               <h3 className="serif">Post-Construction</h3>
               <p>Transform your newly built or renovated property from a dusty site into a move-in ready masterpiece with our specialized heavy-duty cleaning.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials">
+        <div className="container">
+          <div className="section-title">
+            <h2 className="serif">Client Testimonials</h2>
+            <p>Don't just take our word for it. Hear from our esteemed clients across Kigali.</p>
+          </div>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <Quote size={32} className="quote-icon" />
+              <p className="testimonial-text">"We hired LuxeClean for a post-construction deep clean of our new villa in Nyarutarama. The team was incredibly professional and left no corner untouched. Highly recommended."</p>
+              <div className="testimonial-author">
+                <div className="author-avatar" style={{background: '#0f4c3a', color: 'white'}}>MR</div>
+                <div>
+                  <h4>Mugisha R.</h4>
+                  <span>Homeowner, Nyarutarama</span>
+                </div>
+              </div>
+            </div>
+            <div className="testimonial-card">
+              <Quote size={32} className="quote-icon" />
+              <p className="testimonial-text">"LuxeClean handles the daily maintenance of our corporate offices in Kiyovu. They are discreet, reliable, and our workspace has never looked better. Worth every penny."</p>
+              <div className="testimonial-author">
+                <div className="author-avatar" style={{background: '#d4af37', color: 'white'}}>CK</div>
+                <div>
+                  <h4>Chantal K.</h4>
+                  <span>Operations Manager, Tech Hub</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="faq-section">
+        <div className="container">
+          <div className="section-title">
+            <h2 className="serif">Frequently Asked Questions</h2>
+          </div>
+          <div className="faq-container">
+            {[
+              { q: "Do I need to provide cleaning supplies?", a: "No, our team arrives fully equipped with premium, eco-friendly cleaning supplies and professional-grade vacuums." },
+              { q: "Are your cleaners vetted and insured?", a: "Absolutely. Every member of our staff undergoes rigorous background checks and training. LuxeClean is fully insured for your peace of mind." },
+              { q: "How long does a deep clean take?", a: "It depends on the size of the property. A standard 3-bedroom apartment deep clean typically takes a team of three about 4 to 6 hours." },
+              { q: "Do you offer weekend services?", a: "Yes, we operate 7 days a week to accommodate your schedule, though weekend slots book up quickly." }
+            ].map((faq, index) => (
+              <div className={`faq-item ${activeFaq === index ? 'active' : ''}`} key={index}>
+                <button className="faq-question" onClick={() => toggleFaq(index)}>
+                  {faq.q}
+                  <ChevronDown size={20} className="faq-icon" />
+                </button>
+                <div className="faq-answer">
+                  <p>{faq.a}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
