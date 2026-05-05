@@ -20,7 +20,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Web3Forms Integration
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -35,7 +35,7 @@ function App() {
           subject: 'New Lead: LuxeClean Kigali'
         })
       });
-      
+
       const result = await response.json();
       if (result.success) {
         setSubmitted(true);
@@ -51,7 +51,7 @@ function App() {
   };
 
   const handleChange = (e) => {
-    setFormData({...formData, [e.target.name]: e.target.value});
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
@@ -60,17 +60,17 @@ function App() {
       <header className="header">
         <div className="container header-content">
           <a href="/" className="logo">
-            <Sparkles size={24} className="text-gold-accent" style={{color: 'var(--gold-accent)'}} />
-            LuxeClean<span style={{color: 'var(--gold-accent)'}}>Kigali</span>
+            <Sparkles size={24} className="text-gold-accent" style={{ color: 'var(--gold-accent)' }} />
+            LuxeClean<span style={{ color: 'var(--gold-accent)' }}>Kigali</span>
           </a>
-          
+
           <nav className="nav-links">
             <a href="#services">Services</a>
             <a href="#testimonials">Reviews</a>
             <a href="#faq">FAQ</a>
           </nav>
 
-          <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <a href="tel:0793931271" className="header-phone-btn">
               <Phone size={16} />
               <span>079 393 1271</span>
@@ -104,7 +104,7 @@ function App() {
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label>Full Name</label>
-                    <input type="text" name="name" className="form-control" placeholder="E.g., Mugisha" required onChange={handleChange} />
+                    <input type="text" name="name" className="form-control" placeholder="E.g., Bruno" required onChange={handleChange} />
                   </div>
                   <div className="form-group">
                     <label>Phone Number</label>
@@ -121,7 +121,7 @@ function App() {
                   </div>
                   <div className="form-group">
                     <label>Neighborhood (Kigali)</label>
-                    <input type="text" name="address" className="form-control" placeholder="E.g., Nyarutarama, Kiyovu" required onChange={handleChange} />
+                    <input type="text" name="address" className="form-control" placeholder="E.g., Nyarutarama, Kiyovu, Kagugu, Kabeza, ...etc" required onChange={handleChange} />
                   </div>
                   <button type="submit" className="submit-btn" disabled={isSubmitting}>
                     {isSubmitting ? 'Sending...' : 'Secure Your Booking'} <ChevronRight size={20} />
@@ -202,7 +202,7 @@ function App() {
               <Quote size={32} className="quote-icon" />
               <p className="testimonial-text">"We hired LuxeClean for a post-construction deep clean of our new villa in Nyarutarama. The team was incredibly professional and left no corner untouched. Highly recommended."</p>
               <div className="testimonial-author">
-                <div className="author-avatar" style={{background: '#0f4c3a', color: 'white'}}>MR</div>
+                <div className="author-avatar" style={{ background: '#0f4c3a', color: 'white' }}>MR</div>
                 <div>
                   <h4>Mugisha R.</h4>
                   <span>Homeowner, Nyarutarama</span>
@@ -213,7 +213,7 @@ function App() {
               <Quote size={32} className="quote-icon" />
               <p className="testimonial-text">"LuxeClean handles the daily maintenance of our corporate offices in Kiyovu. They are discreet, reliable, and our workspace has never looked better. Worth every penny."</p>
               <div className="testimonial-author">
-                <div className="author-avatar" style={{background: '#d4af37', color: 'white'}}>CK</div>
+                <div className="author-avatar" style={{ background: '#d4af37', color: 'white' }}>CK</div>
                 <div>
                   <h4>Chantal K.</h4>
                   <span>Operations Manager, Tech Hub</span>
@@ -257,7 +257,7 @@ function App() {
           <div className="footer-grid">
             <div className="footer-about">
               <a href="/" className="logo">
-                LuxeClean<span style={{color: '#d4af37'}}>Kigali</span>
+                LuxeClean<span style={{ color: '#d4af37' }}>Kigali</span>
               </a>
               <p>Kigali's premier cleaning and facility management service. Dedicated to excellence, discretion, and perfection in every detail.</p>
             </div>
@@ -287,10 +287,10 @@ function App() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a 
-        href="https://wa.me/250793931271?text=Hello%20LuxeClean!%20I%20would%20like%20to%20request%20a%20cleaning%20quote." 
-        className="whatsapp-float" 
-        target="_blank" 
+      <a
+        href="https://wa.me/250793931271?text=Hello%20LuxeClean!%20I%20would%20like%20to%20request%20a%20cleaning%20quote."
+        className="whatsapp-float"
+        target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
       >
