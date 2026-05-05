@@ -619,7 +619,7 @@ body.dark-theme .hero::after {
   }
   
   .hero::after {
-    background: rgba(253, 251, 247, 0.92);
+    background: rgba(242, 239, 233, 0.92);
   }
   
   .services-grid {
