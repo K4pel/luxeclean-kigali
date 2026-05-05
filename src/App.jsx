@@ -74,6 +74,13 @@ function App() {
             <Sparkles size={24} className="text-gold-accent" style={{color: 'var(--gold-accent)'}} />
             LuxeClean<span style={{color: 'var(--gold-accent)'}}>Kigali</span>
           </a>
+          
+          <nav className="nav-links">
+            <a href="#services">Services</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+
           <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
             <button 
               onClick={toggleTheme} 
@@ -82,9 +89,8 @@ function App() {
             >
               {isDark ? <Sun size={24} /> : <Moon size={24} />}
             </button>
-            <a href="tel:0787263005" className="call-btn-header">
-              <Phone size={18} />
-              <span>078 726 3005</span>
+            <a href="tel:0787263005" className="call-btn-header book-btn">
+              <span>Book Now</span>
             </a>
           </div>
         </div>
@@ -175,7 +181,7 @@ function App() {
       </section>
 
       {/* Services Section */}
-      <section className="process-section">
+      <section id="services" className="process-section">
         <div className="container">
           <div className="section-title">
             <h2 className="serif">Our Expertise</h2>
@@ -202,7 +208,7 @@ function App() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials">
+      <section id="testimonials" className="testimonials">
         <div className="container">
           <div className="section-title">
             <h2 className="serif">Client Testimonials</h2>
@@ -236,7 +242,7 @@ function App() {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
+      <section id="faq" className="faq-section">
         <div className="container">
           <div className="section-title">
             <h2 className="serif">Frequently Asked Questions</h2>
@@ -284,8 +290,8 @@ function App() {
             <div>
               <h4>Contact</h4>
               <ul className="footer-links">
-                <li><a href="#">Call: 078 726 3005</a></li>
-                <li><a href="#">Email: booking@luxecleankigali.rw</a></li>
+                <li><a href="tel:0787263005">Call: 078 726 3005</a></li>
+                <li><a href="mailto:dingk8cz@gmail.com">Email: dingk8cz@gmail.com</a></li>
                 <li><a href="#">HQ: KG 9 Ave, Nyarutarama</a></li>
                 <li><a href="#">Kigali, Rwanda</a></li>
               </ul>

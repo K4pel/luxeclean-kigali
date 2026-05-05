@@ -78,6 +78,7 @@ h1, h2, h3, h4, .serif {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
+  border-top: 4px solid var(--gold-accent); /* VERY OBVIOUS CHANGE */
   z-index: 1000;
   transition: all 0.3s ease;
 }
@@ -86,6 +87,31 @@ h1, h2, h3, h4, .serif {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.nav-links {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .nav-links a:hover {
+    color: var(--primary-accent);
+  }
 }
 
 .logo {
@@ -113,8 +139,8 @@ h1, h2, h3, h4, .serif {
   background: var(--primary-accent);
   color: #fff;
   padding: 0.8rem 1.8rem;
-  border-radius: 4px; /* Sharp, premium edges */
-  font-weight: 500;
+  border-radius: 50px; /* Made it a pill shape for obvious difference */
+  font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
