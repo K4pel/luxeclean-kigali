@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-color: #f2efe9; /* Softer, warmer luxury beige */
-  --text-primary: #1c2421; /* Deep forest slate */
-  --text-secondary: #4a544f;
-  --primary-accent: #0f4c3a; /* Deep emerald/forest */
-  --primary-accent-hover: #0a3629;
-  --gold-accent: #c49f27; /* Slightly deeper gold */
-  --surface-color: #faf8f2; /* Soft cream instead of pure white */
-  --border-color: rgba(15, 76, 58, 0.08);
-  --header-bg: rgba(242, 239, 233, 0.95);
-  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --bg-color: #f0f5f3; /* Fresh, soft mint/slate for a clean feel */
+  --text-primary: #112a22; /* Deep slate green */
+  --text-secondary: #4a5c54;
+  --primary-accent: #0d5c46; /* Rich emerald */
+  --primary-accent-hover: #094031;
+  --gold-accent: #d4af37; /* Metallic gold */
+  --surface-color: #ffffff; /* Crisp white panels */
+  --border-color: rgba(13, 92, 70, 0.1);
+  --header-bg: rgba(240, 245, 243, 0.95);
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
 body.dark-theme {
@@ -151,7 +151,7 @@ h1, h2, h3, h4, .serif {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, var(--bg-color) 0%, rgba(242, 239, 233, 0.8) 50%, rgba(242, 239, 233, 0.2) 100%);
+  background: linear-gradient(90deg, var(--bg-color) 0%, rgba(240, 245, 243, 0.8) 50%, rgba(240, 245, 243, 0.2) 100%);
   z-index: -1;
   transition: background 0.3s ease;
 }
@@ -619,7 +619,7 @@ body.dark-theme .hero::after {
   }
   
   .hero::after {
-    background: rgba(242, 239, 233, 0.92);
+    background: rgba(240, 245, 243, 0.92);
   }
   
   .services-grid {
