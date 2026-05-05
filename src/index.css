@@ -641,11 +641,15 @@ h1, h2, h3, h4, .serif {
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-content h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
   
   .services-grid {
@@ -657,7 +661,23 @@ h1, h2, h3, h4, .serif {
     gap: 3rem;
   }
   
-  .call-btn-header span {
+  .header-phone-btn span {
     display: none;
+  }
+
+  .lead-form-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-item h4 {
+    font-size: 2.5rem;
+  }
+
+  .stats, .process-section, .testimonials, .faq-section {
+    padding: 4rem 0;
+  }
+
+  .section-title h2 {
+    font-size: 2.2rem;
   }
 }
