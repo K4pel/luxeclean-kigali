@@ -11,22 +11,11 @@ function App() {
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
-
-  useEffect(() => {
-    if (isDark) {
-      document.body.classList.add('dark-theme');
-    } else {
-      document.body.classList.remove('dark-theme');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark(!isDark);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -82,15 +71,9 @@ function App() {
           </nav>
 
           <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-            <button 
-              onClick={toggleTheme} 
-              style={{background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer', display: 'flex', alignItems: 'center'}}
-              aria-label="Toggle Dark Mode"
-            >
-              {isDark ? <Sun size={24} /> : <Moon size={24} />}
-            </button>
-            <a href="tel:0787263005" className="call-btn-header book-btn">
-              <span>Book Now</span>
+            <a href="tel:0793931271" className="header-phone-btn">
+              <Phone size={16} />
+              <span>079 393 1271</span>
             </a>
           </div>
         </div>
@@ -290,7 +273,7 @@ function App() {
             <div>
               <h4>Contact</h4>
               <ul className="footer-links">
-                <li><a href="tel:0787263005">Call: 078 726 3005</a></li>
+                <li><a href="tel:0793931271">Call: 079 393 1271</a></li>
                 <li><a href="mailto:dingk8cz@gmail.com">Email: dingk8cz@gmail.com</a></li>
                 <li><a href="#">HQ: KG 9 Ave, Nyarutarama</a></li>
                 <li><a href="#">Kigali, Rwanda</a></li>
@@ -305,7 +288,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a 
-        href="https://wa.me/250787263005?text=Hello%20LuxeClean!%20I%20would%20like%20to%20request%20a%20cleaning%20quote." 
+        href="https://wa.me/250793931271?text=Hello%20LuxeClean!%20I%20would%20like%20to%20request%20a%20cleaning%20quote." 
         className="whatsapp-float" 
         target="_blank" 
         rel="noopener noreferrer"
