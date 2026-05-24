@@ -64,7 +64,7 @@ h1, h2, h3, h4, .serif {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  border-top: 4px solid var(--gold-accent); /* VERY OBVIOUS CHANGE */
+  border-top: 4px solid var(--gold-accent);
   z-index: 1000;
   transition: all 0.3s ease;
 }
