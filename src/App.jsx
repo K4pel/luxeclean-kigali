@@ -154,11 +154,11 @@ function App() {
       <section className="stats">
         <div className="container stats-grid">
           <div className="stat-item">
-            <h4 className="serif">500+</h4>
+            <h4 className="serif">1,500+</h4>
             <p>Homes Cleaned</p>
           </div>
           <div className="stat-item">
-            <h4 className="serif">50+</h4>
+            <h4 className="serif">120+</h4>
             <p>Corporate Clients</p>
           </div>
           <div className="stat-item">
@@ -166,7 +166,7 @@ function App() {
             <p>Eco-Friendly Products</p>
           </div>
           <div className="stat-item">
-            <h4 className="serif">24/7</h4>
+            <h4 className="serif">365</h4>
             <p>Customer Support</p>
           </div>
         </div>
