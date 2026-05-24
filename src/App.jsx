@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Phone, Shield, Clock, Award, Sparkles, Building2, Home, ChevronRight, CheckCircle, Star, Moon, Sun, MessageCircle, Quote, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Shield, Clock, Sparkles, Building2, Home, ChevronRight, CheckCircle, Star, MessageCircle, Quote, ChevronDown } from 'lucide-react';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -11,7 +11,9 @@ function App() {
 
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [activeFaq, setActiveFaq] = useState(null);
+  const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY;
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
@@ -20,6 +22,13 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
+
+    if (!web3FormsKey) {
+      setSubmitError('Configuration error: form key is missing. Please contact support.');
+      setIsSubmitting(false);
+      return;
+    }
 
     // Web3Forms Integration
     try {
@@ -30,7 +39,7 @@ function App() {
           Accept: 'application/json'
         },
         body: JSON.stringify({
-          access_key: '327f16e4-a83d-4952-8beb-5097588e6c51',
+          access_key: web3FormsKey,
           ...formData,
           subject: 'New Lead: LuxeClean Kigali'
         })
@@ -40,11 +49,10 @@ function App() {
       if (result.success) {
         setSubmitted(true);
       } else {
-        // Fallback if key is missing/invalid
-        setSubmitted(true);
+        setSubmitError('We could not send your request right now. Please try again in a moment.');
       }
-    } catch (error) {
-      setSubmitted(true);
+    } catch {
+      setSubmitError('Network error: please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -103,16 +111,16 @@ function App() {
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <label>Full Name</label>
-                    <input type="text" name="name" className="form-control" placeholder="E.g., Bruno" required onChange={handleChange} />
+                    <label htmlFor="name">Full Name</label>
+                    <input id="name" type="text" name="name" className="form-control" placeholder="E.g., Bruno" required onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" className="form-control" placeholder="078 XXX XXXX" required onChange={handleChange} />
+                    <label htmlFor="phone">Phone Number</label>
+                    <input id="phone" type="tel" name="phone" className="form-control" placeholder="079 XXX XXXX" pattern="07[0-9]{8}" required onChange={handleChange} />
                   </div>
                   <div className="form-group">
-                    <label>Service Required</label>
-                    <select name="service" className="form-control" onChange={handleChange}>
+                    <label htmlFor="service">Service Required</label>
+                    <select id="service" name="service" className="form-control" onChange={handleChange}>
                       <option value="deep_cleaning">Residential Deep Cleaning</option>
                       <option value="corporate">Corporate & Office Cleaning</option>
                       <option value="post_construction">Post-Construction Cleanup</option>
@@ -120,9 +128,10 @@ function App() {
                     </select>
                   </div>
                   <div className="form-group">
-                    <label>Neighborhood (Kigali)</label>
-                    <input type="text" name="address" className="form-control" placeholder="E.g., Nyarutarama, Kiyovu, Kagugu, Kabeza, ...etc" required onChange={handleChange} />
+                    <label htmlFor="address">Neighborhood (Kigali)</label>
+                    <input id="address" type="text" name="address" className="form-control" placeholder="E.g., Nyarutarama, Kiyovu, Kagugu, Kabeza, ...etc" required onChange={handleChange} />
                   </div>
+                  {submitError && <p role="alert" style={{ color: '#ff6b6b', marginTop: '0.25rem' }}>{submitError}</p>}
                   <button type="submit" className="submit-btn" disabled={isSubmitting}>
                     {isSubmitting ? 'Sending...' : 'Secure Your Booking'} <ChevronRight size={20} />
                   </button>
@@ -275,8 +284,8 @@ function App() {
               <ul className="footer-links">
                 <li><a href="tel:0793931271">Call: 079 393 1271</a></li>
                 <li><a href="mailto:dingk8cz@gmail.com">Email: dingk8cz@gmail.com</a></li>
-                <li><a href="#">HQ: KG 9 Ave, Nyarutarama</a></li>
-                <li><a href="#">Kigali, Rwanda</a></li>
+                <li><a href="https://maps.google.com/?q=KG+9+Ave,+Nyarutarama,+Kigali" target="_blank" rel="noopener noreferrer">HQ: KG 9 Ave, Nyarutarama</a></li>
+                <li><a href="https://maps.google.com/?q=Kigali,+Rwanda" target="_blank" rel="noopener noreferrer">Kigali, Rwanda</a></li>
               </ul>
             </div>
           </div>
